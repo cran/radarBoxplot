@@ -1,0 +1,12 @@
+80765553f140300fc636b51b8f67c40d *DESCRIPTION
+12697ccc1f8359a17daf5a3b68d9c940 *LICENSE
+2ce62491f195bc0063835be11dfe0168 *NAMESPACE
+f1e9fbe8c406060a9545b2093312451c *R/data.R
+023111ac1a6e26fd912b3dcb74792891 *R/radarBoxplot.R
+a532258dcff638b555ca7b3f5099d498 *R/utils.R
+29b47448da1932799dea8d2b901313e1 *README.md
+514943e2d0f3f7cfa89cf3402bc341fb *data/winequality_red.rda
+78d785cc04ba6baf6260b857b6e930a5 *inst/NEWS
+78025c3b0d62b57eb3c2d01496dc74e0 *man/figures/Example.png
+22cc3a4460cfa6a5aa33c7b16aa6b663 *man/radarBoxplot.Rd
+bfec730c0e2c57773aacb4a383006cf3 *man/winequality_red.Rd
