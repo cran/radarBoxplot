@@ -10,13 +10,27 @@ radarBoxplot(x, ...)
 
 \method{radarBoxplot}{formula}(x, data, ...)
 
-\method{radarBoxplot}{default}(x, y, plot.median = FALSE,
-  use.ggplot2 = FALSE, mfrow = NA, oma = c(5, 4, 0, 0) + 0.1,
-  mar = c(0, 0, 1, 1) + 0.1, innerPolygon = list(),
-  outerPolygon = list(), innerBorder = list(), outerBorder = list(),
-  medianLine = list(), outlierPoints = list(), nTicks = 4,
-  ticksArgs = list(), axisArgs = list(), labelsArgs = list(),
-  angleOffset = NA, ...)
+\method{radarBoxplot}{default}(
+  x,
+  y,
+  IQR = 1.5,
+  use.ggplot2 = FALSE,
+  mfrow = NA,
+  oma = c(5, 4, 0, 0) + 0.1,
+  mar = c(0, 0, 1, 1) + 0.1,
+  innerPolygon = list(),
+  outerPolygon = list(),
+  innerBorder = list(),
+  outerBorder = list(),
+  medianLine = list(),
+  outlierPoints = list(),
+  nTicks = 4,
+  ticksArgs = list(),
+  axisArgs = list(),
+  labelsArgs = list(),
+  angleOffset = NA,
+  ...
+)
 }
 \arguments{
 \item{x}{a data frame or matrix of attributes or a formula describing the
@@ -28,7 +42,7 @@ attributes for the class}
 
 \item{y}{a response vector}
 
-\item{plot.median}{boolean value to flag if median should be plotted: Default FALSE}
+\item{IQR}{numeric. The factor to multiply the IQR to define the outlier threshold. Default 1.5}
 
 \item{use.ggplot2}{if ggplot2 are available it will use ggplot for plotting: Default FALSE}
 
@@ -70,5 +84,19 @@ data("winequality_red")
 # Regular
 radarBoxplot(quality ~ ., winequality_red)
 
+# Orange and green pattern with grey median
+radarBoxplot(quality ~ ., winequality_red,
+             use.ggplot2=FALSE, medianLine=list(col="grey"),
+             innerPolygon=list(col="#FFA500CC"),
+             outerPolygon=list(col=rgb(0,.7,0,0.6)))
+
+# Plot in 2 rows and 3 columns
+# change columns order (counter clockwise)
+radarBoxplot(quality ~ volatile.acidity + citric.acid +
+             residual.sugar + fixed.acidity + chlorides +
+             free.sulfur.dioxide + total.sulfur.dioxide +
+             density + pH + sulphates + alcohol,
+             data = winequality_red,
+             mfrow=c(2,3))
 
 }
